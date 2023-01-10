@@ -10,13 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
-    appType: 'webApp'
-    appName: 'radouane-demo'
-    package: '$(System.DefaultWorkingDirectory)/**/Website.zip'
-    deploymentMethod: 'auto'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -25,6 +18,13 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'Portfolio'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
+    appType: 'webApp'
+    appName: 'radouane-demo'
+    package: '$(System.DefaultWorkingDirectory)/**/Website.zip'
+    deploymentMethod: 'auto'
 
 - script: |
     npm install
