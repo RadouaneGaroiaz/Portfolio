@@ -27,7 +27,7 @@ steps:
     azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
     appType: 'webApp'
     appName: 'radouane-demo'
-    package: '$(build.artifactstagingdirectory)/**/*.zip'
+    package: '$(build.artifactstagingdirectory)/*.zip'
     deploymentMethod: 'auto'
 
 - script: |
