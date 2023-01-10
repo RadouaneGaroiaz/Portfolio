@@ -15,7 +15,7 @@ steps:
     azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
     appType: 'webApp'
     appName: 'radouane-demo'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/**/Website.zip'
     deploymentMethod: 'auto'
 - task: NodeTool@0
   inputs:
@@ -24,7 +24,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'
+    artifactName: 'Portfolio'
 
 - script: |
     npm install
