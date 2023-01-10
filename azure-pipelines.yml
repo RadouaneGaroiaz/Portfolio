@@ -18,6 +18,7 @@ steps:
   inputs:
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
+
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
   inputs:
@@ -27,8 +28,9 @@ steps:
     azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
     appType: 'webApp'
     appName: 'radouane-demo'
-    package: '$(build.artifactstagingdirectory)/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/*.zip'
     deploymentMethod: 'auto'
+
 
 - script: |
     npm install
