@@ -16,20 +16,21 @@ steps:
   displayName: 'Install Node.js'
 - task: CopyFiles@2
   inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+    targetFolder: '$(System.DefaultWorkingDirectory)'    
 
 
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Radouane GAROIAZN – MPN(846c8665-4538-4dc3-8cbb-48fd7e8e26d7)'
     appType: 'webApp'
     appName: 'radouane-demo'
-    package: '$(Build.ArtifactStagingDirectory)/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/*.zip'
     deploymentMethod: 'auto'
+
 
 
 - script: |
